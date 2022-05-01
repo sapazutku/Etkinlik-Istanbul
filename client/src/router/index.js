@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
+import Register from '@/components/Register'
 import CategoryView from '@/view/CategoryView'
 import YesilView from '@/view/YesilView'
 
@@ -22,6 +23,11 @@ export default new Router({
       path: "/park",
       name: "park",
       component: YesilView
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: Register
     }
   ]
 });
