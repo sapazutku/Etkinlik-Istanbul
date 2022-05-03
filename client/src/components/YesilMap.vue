@@ -50,12 +50,13 @@ export default {
       search:""
     };
   },
-  mounted: function () {
+  /*mounted: function () {
     L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.3.4/dist/images/";
     this.$nextTick(() => {
-      this.markerObjects = this.$refs.markersRef.map((ref) => ref.mapObject);
+      this.markerObjects = this.$refs.markersRef
+      .map((ref) => ref.mapObject);
     });
-  },
+  },*/
 
   methods: {
     displayTooltip(selectedIndex) {
@@ -80,7 +81,8 @@ export default {
 
 <style>
 .map{
-  height: 500px;
+  height: 400px;
+
   border: 1px solid #ccc;
 }
 
