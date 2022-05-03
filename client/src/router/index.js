@@ -4,7 +4,8 @@ import HelloWorld from "@/components/HelloWorld";
 import Register from "@/components/Register";
 import CategoryView from "@/view/CategoryView";
 import YesilView from "@/view/YesilView";
-
+import Posts from "@/view/Posts.vue";
+import CreatePost from "@/view/CreatePost.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -27,6 +28,16 @@ const routes = [
     path: "/register",
     name: "register",
     component: Register
+  },
+  {
+    path: "/posts",
+    name: "Posts",
+    component: Posts
+  },
+  {
+    path: "/create",
+    name: "Create",
+    component: CreatePost
   }
 ];
 

@@ -10,7 +10,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.6.0",
     "axios": "^0.27.2",
+    "buefy": "^0.9.20",
     "leaflet": "^1.8.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

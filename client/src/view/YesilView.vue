@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Yeşil Alanlar</h1>
-    <YesilMap />
+    <YesilMap :visiblePopUp="visiblePopUp"/>
   </div>
 </template>
 
@@ -10,6 +10,7 @@ import YesilMap from '../components/YesilMap.vue';
 export default {
   data() {
     return {
+      visiblePopUp: "hidden",
     };
   },
   components: {
@@ -27,5 +28,8 @@ export default {
 <style>
 #map {
   height: 180px;
+}
+.popup {
+  visibility: hidden;
 }
 </style>

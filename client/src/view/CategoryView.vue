@@ -4,8 +4,11 @@
       <div class="pagination">
         <span v-for="(menuItem, index) in menuItems" :key="index">
           <li>
-            <a :href="menuItem.link">
-              <span class="li">{{ menuItem.name }}</span>
+            <a>
+              <router-link :to="menuItem.link">
+                <span class="li">{{ menuItem.name }}</span>
+              </router-link>
+              
             </a>
           </li>
         </span>
@@ -35,7 +38,7 @@ export default {
         },
         {
           name: "Müzik Etkinlikleri",
-          link: "/muzik",
+          link: "/posts",
         },
         {
           name: "Sosyal Etkinlikler",
