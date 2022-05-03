@@ -31,7 +31,7 @@ export default {
         },
         {
           name: "Çevre Etkinlikleri",
-          link: "/cevre",
+          link: "/posts",
         },
         {
           name: "Müzik Etkinlikleri",

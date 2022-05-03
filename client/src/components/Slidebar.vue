@@ -142,7 +142,7 @@
             icon: 'bx-user',
           },
           {
-            link: 'home/category',
+            link: '/category',
             name: 'Kategoriler',
             tooltip: 'Dashboard',
             icon: 'bx-grid-alt',
