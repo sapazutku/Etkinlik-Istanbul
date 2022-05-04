@@ -46,13 +46,18 @@
         >
         </b-input>
       </b-field>
-      <button @click="submitForm">Gönder</button>
+      <YesilMap :post="post" />
+      <button id="send" @click="submitForm">Gönder</button>
     </form>
   </div>
 </template>
 
 <script>
+import YesilMap from '../components/YesilMap.vue';
 export default {
+  components:{
+    YesilMap
+  },
   props: ["post", "submitForm"],
 };
 </script>
@@ -64,5 +69,9 @@ export default {
 }
 .label {
   float: left;
+}
+#send{
+  margin-top: 50px;
+
 }
 </style>

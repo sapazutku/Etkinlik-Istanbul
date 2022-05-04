@@ -43,10 +43,11 @@ import { LMap, LTileLayer, LMarker, LTooltip, LPopup } from "vue2-leaflet";
 import L, { latLng } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import axios from "axios";
+import {store} from '../store/store.js'
 L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.3.4/dist/images/";
 
 export default {
-  props: ["visiblePopUp"],
+  props: ["visiblePopUp","post"],
   components: {
     "l-map": LMap,
     "l-tile-layer": LTileLayer,
@@ -105,6 +106,7 @@ export default {
       //this.$emit("getPark", this.checked);
       if (this.checked) {
         console.log(id);
+        this.post.parkId = id;
       }
     }
   },
@@ -114,8 +116,7 @@ export default {
 <style>
 .map {
   height: 400px;
-  width: 60%;
-  margin-left: 25%;
+  width: 100%;
   border: 1px solid #ccc;
 }
 </style>
