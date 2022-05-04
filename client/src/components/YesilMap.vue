@@ -107,7 +107,7 @@ export default {
 <style>
 .map {
   height: 400px;
-  width: 60%;
+  width: 50%;
   margin-left: 25%;
   border: 1px solid #ccc;
 }

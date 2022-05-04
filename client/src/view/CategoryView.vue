@@ -50,7 +50,7 @@ export default {
         },
         {
           name: "Müzisyen Başvurusu",
-          link: "/basvuru",
+          link: "/create",
         },
       ],
     },
