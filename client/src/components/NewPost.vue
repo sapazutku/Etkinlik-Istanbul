@@ -3,9 +3,10 @@
     <form @submit.prevent="submitForm">
       <b-field label="Email">
         <b-input
+          v-model="post.title"
           placeholder="Email"
           required
-          validation-message="This email is invalid"
+          validation-message="Hatalı email"
           type="email"
           
         >
@@ -14,6 +15,7 @@
 
       <b-field label="Kullanıcı Adı">
         <b-input
+          v-model="post.creator"
           placeholder="Kullanıcı Adı"
           required
           validation-message="Lütfen isminizi kontrol ediniz .."
@@ -26,6 +28,7 @@
 
       <b-field label="Telefon">
         <b-input
+
           placeholder="0 (5xx) xxx xx xx"
           type="phone"
           pattern="05([0-9]{9})"
@@ -33,8 +36,9 @@
         >
         </b-input>
       </b-field>
-      <b-field label="Kendinizden biraz bahseder misiniz?" v-show="false">
+      <b-field label="Kendinizden biraz bahseder misiniz?" v-show="true">
         <b-input
+          v-model="post.content"
           type="textarea"
           minlength="10"
           maxlength="100"
@@ -42,6 +46,7 @@
         >
         </b-input>
       </b-field>
+      <button @click="submitForm">Gönder</button>
     </form>
   </div>
 </template>

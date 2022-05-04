@@ -1,10 +1,9 @@
 <template>
   <div>
-    <!--  -->
-
     <NewPost :post="post" :submitForm="createPost" />
-    <br>
     <YesilMap />
+    <br>
+    
   </div>
 </template>
 

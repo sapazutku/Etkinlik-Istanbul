@@ -18,6 +18,10 @@ const postSchema = new mongoose.Schema({
     creator:{
         type:String,
         required:true
+    },
+    parkId:{
+        type:Number,
+        required:false
     }
 });  
 
