@@ -126,9 +126,9 @@ export default {
         },
         {
           link: "#",
-          name: "Mesajlar",
-          tooltip: "Messages",
-          icon: "bx-chat",
+          name: "Hakkında",
+          tooltip: "About",
+          icon: "bx-info-circle",
         },
         {
           link: "#",

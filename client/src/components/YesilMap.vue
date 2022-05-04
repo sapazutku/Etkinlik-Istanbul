@@ -4,7 +4,7 @@
     <button @click="getData">GET</button>
     <l-map :zoom="zoom" :center="center">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <button @click="consoleLog">
+     
         <l-marker
           v-for="(park, index) in parklar"
           :key="index"
@@ -24,12 +24,16 @@
                 id="checkbox"
                 name="vehicle3"
                 v-model="checked"
+                @change="getPark(park._id)"
               />
               <label for="checkbox">Seç</label>
             </div>
+            <div>
+              <a>{{park.COUNTY_NAME}}, {{park.NEIGHBORHOOD_NAME}} Mahallesi</a>
+            </div>
           </l-popup>
         </l-marker>
-      </button>
+      
     </l-map>
   </div>
 </template>
@@ -97,9 +101,12 @@ export default {
           this.parklar = response.data.result.records;
         });
     },
-    consoleLog() {
-      console.log("Seçildi: ");
-    },
+    getPark(id) {
+      //this.$emit("getPark", this.checked);
+      if (this.checked) {
+        console.log(id);
+      }
+    }
   },
 };
 </script>
