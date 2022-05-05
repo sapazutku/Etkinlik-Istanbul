@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <v-form @submit.prevent="submitForm">
+    <v-form name="vue-form" @submit.prevent="submitForm">
       <b-field label="Email">
         <b-input
           v-model="post.title"
@@ -19,7 +19,7 @@
           placeholder="Kullanıcı Adı"
           required
           validation-message="Lütfen isminizi kontrol ediniz .."
-          type="text is-success"
+          type="text"
           pattern="([a-z]|[A-Z])*"
         >
         </b-input>
@@ -47,7 +47,7 @@
         </b-input>
       </b-field>
       <YesilMap :post="post" />
-      <button id="send" @click="submitForm">Gönder</button>
+      <b-button type="is-danger" id="send" @click="submitForm">Gönder</b-button>
     </v-form>
   </div>
 </template>
