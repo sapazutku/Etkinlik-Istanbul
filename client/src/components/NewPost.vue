@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="submitForm">
+    <v-form @submit.prevent="submitForm">
       <b-field label="Email">
         <b-input
           v-model="post.title"
@@ -48,7 +48,7 @@
       </b-field>
       <YesilMap :post="post" />
       <button id="send" @click="submitForm">Gönder</button>
-    </form>
+    </v-form>
   </div>
 </template>
 
