@@ -1,9 +1,7 @@
 <template>
   <div>
     <NewPost :post="post" :submitForm="createPost" />
-    
-    <br>
-    
+    <br />
   </div>
 </template>
 
@@ -11,7 +9,6 @@
 import NewPost from "../components/NewPost.vue";
 import { reactive } from "@vue/composition-api";
 import { useRouter } from "vue2-helpers/vue-router";
-import { store } from "../store/store.js";
 export default {
   components: {
     NewPost,
