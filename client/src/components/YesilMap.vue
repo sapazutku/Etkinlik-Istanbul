@@ -1,7 +1,7 @@
 <template>
   <div class="map">
-    <input @keypress.enter="getData" v-model="search" />
-    <button @click="getData">GET</button>
+    <input v-model="search" />
+    <button @click="getData(search)">GET</button>
     <l-map :zoom="zoom" :center="center">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
      
@@ -43,10 +43,11 @@ import { LMap, LTileLayer, LMarker, LTooltip, LPopup } from "vue2-leaflet";
 import L, { latLng } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import axios from "axios";
+import {store} from '../store/store.js'
 L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.3.4/dist/images/";
 
 export default {
-  props: ["visiblePopUp"],
+  props: ["visiblePopUp","post"],
   components: {
     "l-map": LMap,
     "l-tile-layer": LTileLayer,
@@ -70,14 +71,7 @@ export default {
       checked: false,
     };
   },
-  /*mounted: function () {
-    L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.3.4/dist/images/";
-    this.$nextTick(() => {
-      this.markerObjects = this.$refs.markersRef
-      .map((ref) => ref.mapObject);
-    });
-  },*/
-
+  
   methods: {
     displayTooltip(selectedIndex) {
       for (let markerObject of this.markerObjects) {
@@ -88,23 +82,22 @@ export default {
     getCoord(a, b) {
       return latLng(a, b);
     },
-    getData() {
+    getData(search) {
       axios
         .get(
-          this.apiUrl +
-            this.search +
-            "&resource_id=d588f256-2982-43d2-b372-c38978d7200b"
+          "http://localhost:5000/park/" + search
         )
         .then((response) => {
-          // eslint-disable-next-line no-console
-          console.log(response.data.result.records);
-          this.parklar = response.data.result.records;
+          console.log(response.data);
+          
+          this.parklar = response.data;
         });
     },
     getPark(id) {
       //this.$emit("getPark", this.checked);
       if (this.checked) {
         console.log(id);
+        this.post.parkId = id;
       }
     }
   },
@@ -114,8 +107,7 @@ export default {
 <style>
 .map {
   height: 400px;
-  width: 60%;
-  margin-left: 25%;
+  width: 100%;
   border: 1px solid #ccc;
 }
 </style>

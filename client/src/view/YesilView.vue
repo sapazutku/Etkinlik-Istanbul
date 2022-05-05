@@ -32,4 +32,7 @@ export default {
 .popup {
   visibility: hidden;
 }
+.container{
+  width: 70%;
+}
 </style>

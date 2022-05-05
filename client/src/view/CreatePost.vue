@@ -1,7 +1,7 @@
 <template>
   <div>
     <NewPost :post="post" :submitForm="createPost" />
-    <YesilMap />
+    
     <br>
     
   </div>
@@ -9,12 +9,11 @@
 
 <script>
 import NewPost from "../components/NewPost.vue";
-import YesilMap from "../components/YesilMap.vue";
 import { reactive } from "@vue/composition-api";
 import { useRouter } from "vue2-helpers/vue-router";
+import { store } from "../store/store.js";
 export default {
   components: {
-    YesilMap,
     NewPost,
   },
   setup() {
@@ -24,6 +23,7 @@ export default {
       title: "",
       content: "",
       creator: "",
+      parkID: null,
     });
     async function createPost() {
       const response = await fetch(API_URL, {

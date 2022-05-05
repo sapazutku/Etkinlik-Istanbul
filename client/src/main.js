@@ -6,8 +6,10 @@ import router from './router'
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 import VueCompositionAPI from "@vue/composition-api";
+import AxiosPlugin from "vue-axios-cors";
 
 
+Vue.use(AxiosPlugin);
 Vue.config.productionTip = false
 Vue.use(VueCompositionAPI);
 Vue.use(Buefy);

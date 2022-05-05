@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="submitForm">
+    <v-form @submit.prevent="submitForm">
       <b-field label="Email">
         <b-input
           v-model="post.title"
@@ -46,13 +46,18 @@
         >
         </b-input>
       </b-field>
-      <button @click="submitForm">Gönder</button>
-    </form>
+      <YesilMap :post="post" />
+      <button id="send" @click="submitForm">Gönder</button>
+    </v-form>
   </div>
 </template>
 
 <script>
+import YesilMap from '../components/YesilMap.vue';
 export default {
+  components:{
+    YesilMap
+  },
   props: ["post", "submitForm"],
 };
 </script>
@@ -64,5 +69,9 @@ export default {
 }
 .label {
   float: left;
+}
+#send{
+  margin-top: 50px;
+
 }
 </style>
