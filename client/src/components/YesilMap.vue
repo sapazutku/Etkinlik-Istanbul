@@ -1,7 +1,7 @@
 <template>
   <div class="map">
     <input v-model="search" />
-    <button @click="getData(search)">GET</button>
+    <b-button type="is-success" outlined @click="getData(search)">Bul</b-button>
     <l-map :zoom="zoom" :center="center">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
      
@@ -19,14 +19,14 @@
               <h3 style="color: green">{{ park.NAME }}</h3>
             </div>
             <div :style="`visibility:${visiblePopUp}`">
-              <input
-                type="checkbox"
+              <br>
+              <b-checkbox
+                type="checkbox is-danger"
                 id="checkbox"
-                name="vehicle3"
                 v-model="checked"
-                @change="getPark(park._id)"
-              />
-              <label for="checkbox">Seç</label>
+                @change.native="getPark(park._id)"
+              >Adres olarak seç</b-checkbox>
+              <br>
             </div>
             <div>
               <a>{{park.COUNTY_NAME}}, {{park.NEIGHBORHOOD_NAME}} Mahallesi</a>
@@ -43,7 +43,6 @@ import { LMap, LTileLayer, LMarker, LTooltip, LPopup } from "vue2-leaflet";
 import L, { latLng } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import axios from "axios";
-import {store} from '../store/store.js'
 L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.3.4/dist/images/";
 
 export default {
@@ -108,6 +107,9 @@ export default {
 .map {
   height: 400px;
   width: 100%;
-  border: 1px solid #ccc;
+  border:none;
+}
+b-button{
+  margin: 20px;
 }
 </style>

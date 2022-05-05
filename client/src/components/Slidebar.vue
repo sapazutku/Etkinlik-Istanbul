@@ -187,7 +187,7 @@ export default {
     //! Styles
     bgColor: {
       type: String,
-      default: "#11101d",
+      default: "#242140",
     },
     secondaryColor: {
       type: String,
