@@ -37,21 +37,18 @@ export default {
           link: "/posts",
         },
         {
-          name: "Müzik Etkinlikleri",
+          name: "Etkinlik Bul",
           link: "/posts",
         },
         {
-          name: "Sosyal Etkinlikler",
-          link: "/sosyal",
-        },
-        {
-          name: "Çocuk Etkinlikleri",
-          link: "/cocuk",
-        },
-        {
-          name: "Müzisyen Başvurusu",
+          name: "Etkinlik Başvurusu",
           link: "/create",
         },
+        {
+          name: "Yeşil Çevre",
+          link: "/yesil",
+        },
+        
       ],
     },
   },

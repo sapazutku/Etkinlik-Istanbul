@@ -5,6 +5,8 @@ import CategoryView from "@/view/CategoryView";
 import YesilView from "@/view/YesilView";
 import Posts from "@/view/Posts.vue";
 import CreatePost from "@/view/CreatePost.vue";
+import Login from "@/components/Login.vue";
+import Signup from "@/components/Signup.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -37,6 +39,16 @@ const routes = [
     path: "/create",
     name: "Create",
     component: CreatePost
+  },
+  {
+    path: "/user/login",
+    name: "Login",
+    component: Login
+  },
+  {
+    path: "/user/signup",
+    name: "Signup",
+    component: Signup
   }
 ];
 

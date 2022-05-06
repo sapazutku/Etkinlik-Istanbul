@@ -78,9 +78,13 @@ export default {
 </script>
 
 <style>
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .card {
   margin-top: 20px;
-  margin-left: 10%;
   margin-right: 5%;
   width: 30%;
 }
