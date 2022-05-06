@@ -36,7 +36,7 @@
               type="checkbox is-danger"
               id="checkbox"
               v-model="checked"
-              @change.native="getPark(park._id)"
+              @change.native="getPark(park._id, park.NAME)"
               >Adres olarak seç</b-checkbox
             >
             <br />
@@ -50,12 +50,7 @@
       </l-marker>
       
     </l-map>
-    <div>
-      <h2>Etkinlikler</h2>
-      <div v-for="(activePark,index) in activeParks" :key="index">
-        <button >{{ activePark.parkId }}</button>
-      </div>
-    </div>
+    
   </div>
 </template>
 
@@ -112,21 +107,22 @@ export default {
 
         this.parklar = response.data;
       });
-      axios.get("http://localhost:5000/posts/").then((response) => {
-        console.log(response.data);
-        this.activeParks = response.data
-        //this.parklar = response.data;
-      });
+      
     },
-    getPark(id) {
+    getPark(id,name) {
       //this.$emit("getPark", this.checked);
       if (this.checked) {
-        console.log(id);
+        console.log("id:"+id+" name:"+name);
         this.post.parkId = id;
+        this.post.parkName = name;
       }
     },
     
   },
+  mounted: function () {
+    // 
+    
+  }
 };
 </script>
 
