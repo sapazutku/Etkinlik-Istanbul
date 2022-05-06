@@ -1,7 +1,6 @@
 // post Schema for mongoDB
 import mongoose from "mongoose";
 
-
 const userSchema = new mongoose.Schema({
   userName: {
     type: String,
@@ -11,14 +10,14 @@ const userSchema = new mongoose.Schema({
     type: password,
     required: false,
   },
-  phoneNumber:{
+  phoneNumber: {
     type: Number,
     required: false,
   },
-  email: {
-    type: email,
-    required: true,
-  },
+  saved:{
+    type: Array,
+    required: false,
+  }
 });
 
 const User = mongoose.model("User", userSchema);

@@ -1,9 +1,7 @@
 <template>
   <div>
     <NewPost :post="post" :submitForm="createPost" />
-    
-    <br>
-    
+    <br />
   </div>
 </template>
 
@@ -11,7 +9,6 @@
 import NewPost from "../components/NewPost.vue";
 import { reactive } from "@vue/composition-api";
 import { useRouter } from "vue2-helpers/vue-router";
-import { store } from "../store/store.js";
 export default {
   components: {
     NewPost,
@@ -24,6 +21,7 @@ export default {
       content: "",
       creator: "",
       parkID: null,
+      parkName: null,
     });
     async function createPost() {
       const response = await fetch(API_URL, {
@@ -35,7 +33,7 @@ export default {
       });
       const json = await response.json();
       router.push({
-        name: "home",
+        name: "home", // yeni bir component oluştur (form gönderildi)
       });
       console.log(json);
     }

@@ -46,6 +46,11 @@
         >
         </b-input>
       </b-field>
+      <b-field label="Etkinliği düzenlemek istediğiniz yeri seçiniz">
+        
+      </b-field>
+      <br>
+      <br>
       <YesilMap :post="post" />
       <b-button type="is-danger" id="send" @click="submitForm">Gönder</b-button>
     </v-form>
@@ -71,7 +76,7 @@ export default {
   float: left;
 }
 #send{
-  margin-top: 50px;
+  margin-top: 80px;
 
 }
 </style>

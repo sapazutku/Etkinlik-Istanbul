@@ -22,6 +22,10 @@ const postSchema = new mongoose.Schema({
     parkId:{
         type:Number,
         required:false
+    },
+    parkName:{
+        type:String,
+        required:false
     }
 });  
 
