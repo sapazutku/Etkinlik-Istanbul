@@ -1,10 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Register from "@/components/Register";
 import CategoryView from "@/view/CategoryView";
 import YesilView from "@/view/YesilView";
 import Posts from "@/view/Posts.vue";
 import CreatePost from "@/view/CreatePost.vue";
+import Login from "@/components/Login.vue";
+import Signup from "@/components/Signup.vue";
+import User from "../view/UserView.vue"
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -24,11 +27,6 @@ const routes = [
     component: YesilView
   },
   {
-    path: "/register",
-    name: "register",
-    component: Register
-  },
-  {
     path: "/posts",
     name: "Posts",
     component: Posts
@@ -37,6 +35,21 @@ const routes = [
     path: "/create",
     name: "Create",
     component: CreatePost
+  },
+  {
+    path: "/user/login",
+    name: "Login",
+    component: Login
+  },
+  {
+    path: "/user/signup",
+    name: "Signup",
+    component: Signup
+  },
+  {
+    path: "/user",
+    name: "User",
+    component: User
   }
 ];
 

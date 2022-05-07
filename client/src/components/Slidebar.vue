@@ -137,7 +137,7 @@ export default {
           icon: "bx-bell",
         },
         {
-          link: "/saved",
+          link: "/user/saved",
           name: "Kaydedilenler",
           tooltip: "Saved",
           icon: "bx-heart",
