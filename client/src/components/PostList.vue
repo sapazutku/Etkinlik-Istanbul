@@ -26,7 +26,7 @@
         <b-button
           type="is-primary is-light"
           class="card-footer-item"
-          @click="removePost(post._id)"
+          @click="likePost(post._id)"
         >
           <a >Beğen</a>
         </b-button>
@@ -68,11 +68,17 @@ export default {
     
       getPosts();
     }
+    async function likePost(_id) {
+      const response = await fetch(`${API_URL}/${_id}/like`, {
+        method: "POST",
+      });
+    }
 
     return {
       posts,
       removePost,
     };
+    
   },
 };
 </script>

@@ -58,6 +58,7 @@
 </template>
 
 <script>
+// TODO: add Taginput(buefy), rewrite title ,email.
 import YesilMap from '../components/YesilMap.vue';
 export default {
   components:{
