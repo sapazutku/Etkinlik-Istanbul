@@ -28,7 +28,7 @@
           class="card-footer-item"
           @click="likePost(post._id)"
         >
-          <a >Beğen</a>
+          <a >❤️</a>
         </b-button>
         <b-button
           type="is-success is-light"
@@ -44,39 +44,50 @@
 
 <script>
 import { ref, onMounted } from "@vue/composition-api";
+import axios from "axios";
 export default {
   setup() {
     const posts = ref([]);
 
-    const API_URL = "http://localhost:5000/posts";
+    const API_URL = "http://localhost:5000";
 
     onMounted(() => {
       getPosts();
     });
 
     async function getPosts() {
-      const response = await fetch(API_URL);
+      const response = await fetch(API_URL + "/posts");
       const json = await response.json();
 
       posts.value = json;
     }
 
     async function removePost(_id) {
-      const response = await fetch(`${API_URL}/${_id}`, {
+      const response = await fetch(`${API_URL}/posts/${_id}`, {
         method: "DELETE",
       });
     
       getPosts();
     }
+    async function likePost2(_id) {
+       axios.put(`${API_URL}/user/like/${_id}`,{ headers: { token: localStorage.getItem('token')}})
+       .then(res => {
+         console.log(res.data.user.saved);
+        })
+
+    }
     async function likePost(_id) {
-      const response = await fetch(`${API_URL}/${_id}/like`, {
-        method: "POST",
-      });
+      const response = await fetch(`${API_URL}/user/like/${_id}`,{
+        method: "PUT",
+        headers: { token: localStorage.getItem('token')},
+      })
+
     }
 
     return {
       posts,
       removePost,
+      likePost,
     };
     
   },
