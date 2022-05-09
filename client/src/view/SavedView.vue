@@ -3,7 +3,9 @@
     <button @click="showSaved">Show</button>
     <div v-for="save in savedPost" :key="save._id">
       <a>{{ save }}</a>
-      
+    </div>
+    <div v-for="(postID,index) in savedPostsId" :key="index">
+      <a>{{  }}</a>
     </div>
 
   </div>
@@ -15,10 +17,12 @@ export default {
   data(){
     return{
       savedPost:[],
+      savedPostsId:[],
     }
     
   },
   methods:{
+    // 
     async getSaved(id){
       axios.get(`http://localhost:5000/posts/${id}`)
         .then(res => {
@@ -26,6 +30,7 @@ export default {
           this.savedPost = res.data;
         })
     },
+    // user'ın bütün likelerının idsini al 
     async showSaved(){
       axios.get('http://localhost:5000/user/like', { headers: { token: localStorage.getItem('token')}})
       .then(res => {
@@ -34,9 +39,11 @@ export default {
         //this.email = res.data.user.email;
         //console.log(res.data.user.saved);
         //this.saved = res.data.user.saved;
-        for (let index = 0; index < res.data.user.saved.length; index++) {
-          
-            this.getSaved(res.data.user.saved[index]);
+        console.log(res.data.user.saved);
+        this.savedPostsId = res.data.user.saved;
+        for (let index = 0; index < this.savedPostsId.length; index++) {
+            // bütün idlerin bilgilerini posttan çek
+            this.getSaved(this.savedPostsId[index]);
         }
       })
     }

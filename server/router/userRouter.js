@@ -3,6 +3,7 @@ import User from "../db/users.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import Post from "../db/posts.js";
+import mongoose from "mongoose";
 
 const userRouter = express.Router();
 
@@ -17,13 +18,13 @@ userRouter.post("/login", (req, res, next) => {
     if (!user)
       return res.status(401).json({
         title: "Login failed",
-        error: "Invalid login credentials",
+        error: "Kullanıcı Bulunamadı",
       });
     // incorrect password
     if (!bcrypt.compareSync(req.body.password, user.password)) {
       return res.status(401).json({
         title: "Login failed",
-        error: "Invalid login credentials",
+        error: "Hatalı Parola",
       });
     }
     // if all is good then create a token and send to frontend
@@ -69,7 +70,7 @@ userRouter.post("/signup", (req, res, next) => {
     if (err) {
       return res.status(400).json({
         title: "error",
-        error: "email already exists",
+        error: "Email kullanmda",
       });
     }
     return res.status(200).json({
@@ -92,9 +93,9 @@ userRouter.get("/like", (req, res, next) => {
       if (err) return console.log(err);
       return res.status(200).json({
         title: "User likes",
-        user:{
+        user: {
           saved: user.saved,
-        }
+        },
       });
     });
   });
@@ -157,8 +158,32 @@ userRouter.put("/like/:_id", (req, res, next) => {
 });
 */
 
-userRouter.put("/like/:id", (req, res, next) => {
+userRouter.post("/like/:id", (req, res, next) => {
+  console.log(req.params.id);
   let token = req.headers.token;
+  //console.log(token);
+  jwt.verify(token, "secretkey", (err, decoded) => {
+    if (err)
+      return res.status(401).json({
+        title: "unauthorized",
+      });
+
+    console.log("here");
+    //if (err) return console.log("user eşleşmedi");
+    User.findOneAndUpdate(
+      { _id: decoded.userId },
+      {
+        $addToSet: {
+          users: {
+            saved: req.params.id,
+          },
+        },
+      }
+    );
+  });
+});
+/* 
+  console.log("header" + token);
   jwt.verify(token, "secretkey", (err, decoded) => {
     if (err)
       return res.status(401).json({
@@ -170,10 +195,6 @@ userRouter.put("/like/:id", (req, res, next) => {
       if (err) return console.log("user eşleşmedi");
       user.saved.push(req.params._id);
     });
-  });
-});
-
-
-
+  }); */
 
 export default userRouter;

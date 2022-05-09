@@ -16,10 +16,9 @@
           <a>@{{ post.creator }}</a>
           <br />
           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-          <br>
+          <br />
           <b-tag type="is-light">#Tag</b-tag>
           <b-tag type="is-light">#Tag</b-tag>
-          
         </div>
       </div>
       <footer class="card-footer">
@@ -28,14 +27,14 @@
           class="card-footer-item"
           @click="likePost(post._id)"
         >
-          <a >❤️</a>
+          <a>❤️</a>
         </b-button>
         <b-button
           type="is-success is-light"
           class="card-footer-item"
           @click="removePost(post._id)"
         >
-          <a >Sil</a>
+          <a>Sil</a>
         </b-button>
       </footer>
     </div>
@@ -66,22 +65,29 @@ export default {
       const response = await fetch(`${API_URL}/posts/${_id}`, {
         method: "DELETE",
       });
-    
+
       getPosts();
     }
     async function likePost2(_id) {
-       axios.put(`${API_URL}/user/like/${_id}`,{ headers: { token: localStorage.getItem('token')}})
-       .then(res => {
-         console.log(res.data.user.saved);
+      axios
+        .post(`http:localhost:5000/user/like/${_id}`, {
+          headers: { token: localStorage.getItem("token") },
         })
-
+        .then(res => {
+          console.log(headers);
+        });
+        
     }
     async function likePost(_id) {
-      const response = await fetch(`${API_URL}/user/like/${_id}`,{
-        method: "PUT",
-        headers: { token: localStorage.getItem('token')},
-      })
-
+       this.$buefy.notification.open("Beğenildi");
+      const response = await fetch(`${API_URL}/user/like/${_id}`, {
+        headers: {
+          token: localStorage.getItem("token"),
+          
+        },
+        method: "POST",
+      });
+      console.log("tıklandı");
     }
 
     return {
@@ -89,13 +95,12 @@ export default {
       removePost,
       likePost,
     };
-    
   },
 };
 </script>
 
 <style>
-.container{
+.container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
