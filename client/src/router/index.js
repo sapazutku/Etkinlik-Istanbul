@@ -7,6 +7,7 @@ import CreatePost from "@/view/CreatePost.vue";
 import Login from "@/components/Login.vue";
 import Signup from "@/components/Signup.vue";
 import User from "../view/UserView.vue"
+import Saved from "../view/SavedView.vue"
 
 Vue.use(VueRouter);
 
@@ -50,6 +51,11 @@ const routes = [
     path: "/user",
     name: "User",
     component: User
+  },
+  {
+    path: "/user/saved",
+    name: "Saved",
+    component: Saved
   }
 ];
 
