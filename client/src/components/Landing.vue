@@ -1,9 +1,9 @@
 <template>
-<div>
+<div class="page">
   <div v-show="showUser">
-    <b-button @click="logout">Çıkış Yap</b-button>
+    <b-button type="is-danger" @click="logout">Çıkış Yap</b-button>
     <h1>Hoş Geldiniz <a>@{{ name }} </a></h1>
-    <h2>your email is: {{ email }}</h2>
+    <h2>Email : <a>{{ email }}</a> </h2>
   </div>
   <div class="noLogin" v-show="!showUser">
       <h1>Giriş Yok</h1>
@@ -47,3 +47,8 @@ export default {
   }
 }
 </script>
+<style>
+.page{
+  padding: 3%;
+}
+</style>

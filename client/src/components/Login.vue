@@ -65,7 +65,7 @@ export default {
         (err) => {
           console.log(err.response);
           this.error = err.response.data.error;
-          this.$buefy.notification.open(this.error);
+          this.$buefy.notification.open("Tekrar Deneyin");
         }
       );
     },

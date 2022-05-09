@@ -59,6 +59,9 @@ export default {
           this.error = "";
           //this.$router.push('/user/login');
           this.$buefy.notification.open("Kayıt başarılı");
+          setTimeout(() => {
+              this.$router.push("/user");
+            }, 1000);
         },
         (err) => {
           console.log(err.response);

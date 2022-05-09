@@ -50,7 +50,7 @@
         </ul>
       </div>
 
-      <div class="profile">
+      <!-- <div class="profile">
         <div class="profile-details">
           <img v-if="profileImg" :src="profileImg" alt="profileImg" />
           <i v-else class="bx bxs-user-rectangle" />
@@ -69,7 +69,7 @@
           id="log_out"
           @click.stop="$emit('button-exit-clicked')"
         />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -125,29 +125,17 @@ export default {
           icon: "bx-grid-alt",
         },
         {
-          link: "#",
+          link: "/info",
           name: "Hakkında",
           tooltip: "About",
           icon: "bx-info-circle",
         },
-        {
-          link: "#",
-          name: "Bildirimler",
-          tooltip: "Notifications",
-          icon: "bx-bell",
-        },
+        
         {
           link: "/user/saved",
           name: "Kaydedilenler",
           tooltip: "Saved",
           icon: "bx-heart",
-        },
-
-        {
-          link: "/settings",
-          name: "Ayarlar",
-          tooltip: "Setting",
-          icon: "bx-cog",
         },
       ],
     },
@@ -179,10 +167,7 @@ export default {
       type: String,
       default: "profileRole",
     },
-    isExitButton: {
-      type: Boolean,
-      default: true,
-    },
+    
 
     //! Styles
     bgColor: {

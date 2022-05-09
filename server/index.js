@@ -9,10 +9,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 dotenv.config();
 app.use("/posts", router);
 app.use("/park", ibbRouter);
-app.use("/user", userRouter);
+app.use(
+  "/user",
+  userRouter,
+  cors({
+    origin: "http://localhost:5000/",
+  })
+);
 
 app.listen(process.env.PORT, () => {
   mongoose

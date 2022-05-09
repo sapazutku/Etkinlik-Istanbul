@@ -1,11 +1,14 @@
 <template>
   <div id="app">
     <slidebar></slidebar>
+    
     <router-view></router-view>
+    
   </div>
 </template>
 <script>
 import Slidebar from './components/Slidebar.vue';
+
 export default {
   components:{
     Slidebar

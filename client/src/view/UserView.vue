@@ -1,6 +1,7 @@
 <template>
-  <div class="conatiner">
-    <h1>User Page</h1>
+  <div class="container">
+    <h1>Profil Sayfası</h1>
+    
     <Landing />
   </div>
 </template>
@@ -15,4 +16,9 @@ export default {
 </script>
 
 <style>
+.container {
+  padding: 20px;
+  
+}
+
 </style>
