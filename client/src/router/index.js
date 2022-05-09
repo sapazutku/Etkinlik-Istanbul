@@ -8,7 +8,7 @@ import Login from "@/components/Login.vue";
 import Signup from "@/components/Signup.vue";
 import User from "../view/UserView.vue"
 import Saved from "../view/SavedView.vue"
-
+import Info  from "../components/Info.vue"
 Vue.use(VueRouter);
 
 const routes = [
@@ -56,6 +56,11 @@ const routes = [
     path: "/user/saved",
     name: "Saved",
     component: Saved
+  },
+  {
+    path: "/info",
+    name: "Info",
+    component: Info
   }
 ];
 

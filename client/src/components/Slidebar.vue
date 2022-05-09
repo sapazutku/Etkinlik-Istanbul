@@ -125,7 +125,7 @@ export default {
           icon: "bx-grid-alt",
         },
         {
-          link: "#",
+          link: "/info",
           name: "Hakkında",
           tooltip: "About",
           icon: "bx-info-circle",

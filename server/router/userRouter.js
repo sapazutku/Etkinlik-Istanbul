@@ -100,63 +100,6 @@ userRouter.get("/like", (req, res, next) => {
     });
   });
 });
-/*
-// add user like
-userRouter.post("/like/:_id", (req, res, next) => {
-  let token = req.headers.token;
-  jwt.verify(token, "secretkey", (err, decoded) => {
-    if (err)
-      return res.status(401).json({
-        title: "unauthorized",
-      });
-    // token is valid
-    User.findOne({ _id: decoded.userId }, (err, user) => {
-      if (err) return console.log(err);
-      user.saved.push(req.params._id);
-
-      user.save((err) => {
-        if (err) return console.log(err);
-        return res.status(200).json({
-          title: "User likes",
-          user: {
-            email: user.email,
-            name: user.name,
-            saved: user.saved,
-          },
-        });
-      });
-    });
-  });
-});
-
-
-// add like to user
-userRouter.put("/like/:_id", (req, res, next) => {
-  let token = req.headers.token;
-  jwt.verify(token, "secretkey", (err, decoded) => {
-    if (err)
-      return res.status(401).json({
-        title: "unauthorized",
-      });
-    // token is valid
-    User.findOne({ _id: decoded.userId }, (err, user) => {
-      if (err) return console.log(err);
-      user.saved.push(req.params._id);
-      user.save((err) => {
-        if (err) return console.log(err);
-        return res.status(200).json({
-          title: "User likes",
-          user: {
-            email: user.email,
-            name: user.name,
-            saved: user.saved,
-          },
-        });
-      });
-    });
-  });
-});
-*/
 
 userRouter.post("/like/:id", (req, res, next) => {
   console.log(req.params.id);
@@ -170,31 +113,20 @@ userRouter.post("/like/:id", (req, res, next) => {
 
     console.log("here");
     //if (err) return console.log("user eşleşmedi");
-    User.findOneAndUpdate(
-      { _id: decoded.userId },
-      {
-        $addToSet: {
-          users: {
-            saved: req.params.id,
-          },
-        },
+    User.findOne({ _id: decoded.userId }, (err, user) => {
+      if (err) return console.log(err);
+      user.saved.push(req.params.id);
+      user.save((err) => {
+        if (err) return console.log(err);
+        return res.status(200).json({
+          title: "success",
+        });
       }
+      );
+    }
     );
   });
 });
-/* 
-  console.log("header" + token);
-  jwt.verify(token, "secretkey", (err, decoded) => {
-    if (err)
-      return res.status(401).json({
-        title: "unauthorized",
-      });
-    // token is valid
 
-    User.findOne({ _id: decoded.userId }, (err, user) => {
-      if (err) return console.log("user eşleşmedi");
-      user.saved.push(req.params._id);
-    });
-  }); */
 
 export default userRouter;

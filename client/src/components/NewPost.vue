@@ -1,15 +1,8 @@
 <template>
   <div class="container">
     <v-form name="vue-form" @submit.prevent="submitForm">
-      <b-field label="Email">
-        <b-input
-          v-model="post.title"
-          placeholder="Email"
-          required
-          validation-message="Hatalı email"
-          type="email"
-          
-        >
+      <b-field label="Başlık">
+        <b-input v-model="post.title" placeholder="Başlık" required type="text">
         </b-input>
       </b-field>
 
@@ -24,11 +17,9 @@
         >
         </b-input>
       </b-field>
-      
 
       <b-field label="Telefon">
         <b-input
-
           placeholder="0 (5xx) xxx xx xx"
           type="phone"
           pattern="05([0-9]{9})"
@@ -46,11 +37,9 @@
         >
         </b-input>
       </b-field>
-      <b-field label="Etkinliği düzenlemek istediğiniz yeri seçiniz">
-        
-      </b-field>
-      <br>
-      <br>
+      <b-field label="Etkinliği düzenlemek istediğiniz yeri seçiniz"> </b-field>
+      <br />
+      <br />
       <YesilMap :post="post" />
       <b-button type="is-danger" id="send" @click="submitForm">Gönder</b-button>
     </v-form>
@@ -59,10 +48,10 @@
 
 <script>
 // TODO: add Taginput(buefy), rewrite title ,email.
-import YesilMap from '../components/YesilMap.vue';
+import YesilMap from "../components/YesilMap.vue";
 export default {
-  components:{
-    YesilMap
+  components: {
+    YesilMap,
   },
   props: ["post", "submitForm"],
 };
@@ -76,8 +65,7 @@ export default {
 .label {
   float: left;
 }
-#send{
+#send {
   margin-top: 80px;
-
 }
 </style>

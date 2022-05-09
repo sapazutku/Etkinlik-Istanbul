@@ -33,9 +33,13 @@ export default {
       });
       const json = await response.json();
       router.push({
-        name: "home", // yeni bir component oluştur (form gönderildi)
+        name: "category",
       });
       console.log(json);
+      this.$buefy.notification.open("Etkinlik Talebi Oluşturuldu");
+      setTimeout(() => {
+        this.$router.push("/category");
+      }, 1000);
     }
     return {
       post,
