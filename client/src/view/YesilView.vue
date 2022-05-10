@@ -5,13 +5,20 @@
     <br />
     <br />
     <div>
-      
       <div class="container is-max-desktop">
         <h2 class="title">Etkinlikler</h2>
-        <div class="activity" v-for="(activePark, index) in activeParks" :key="index">
-          <span id="title">{{activePark.title}}</span>
-          <span id="location">📍 {{activePark.parkName}}</span>
-          <b-button id="btn-find" type="is-success is-light" @click="sendSearch(activePark.parkName)">
+        <div
+          class="activity"
+          v-for="(activePark, index) in activeParks"
+          :key="index"
+        >
+          <span id="title">{{ activePark.title }}</span>
+          <span id="location">📍 {{ activePark.parkName }}</span>
+          <b-button
+            id="btn-find"
+            type="is-success is-light"
+            @click="sendSearch(activePark.parkName)"
+          >
             <span>Bul</span>
           </b-button>
         </div>
@@ -65,19 +72,17 @@ export default {
 }
 .activity {
   display: flex;
-  border:1px solid black;
+  border: 1px solid black;
   margin: 5%;
 }
-#title{
+#title {
   width: 40%;
   margin: 5%;
-
 }
-#location{
+#location {
   width: 40%;
-
 }
-#btn-find{
+#btn-find {
   width: 10%;
   margin: 5%;
 }
