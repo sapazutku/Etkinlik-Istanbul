@@ -30,13 +30,7 @@
         >
           <a>❤️</a>
         </b-button>
-        <b-button
-          type="is-success is-light"
-          class="card-footer-item"
-          @click="removePost(post._id)"
-        >
-          <a>Sil</a>
-        </b-button>
+        
       </footer>
     </div>
   </div>
@@ -62,13 +56,6 @@ export default {
       posts.value = json;
     }
 
-    async function removePost(_id) {
-      const response = await fetch(`${API_URL}/posts/${_id}`, {
-        method: "DELETE",
-      });
-
-      getPosts();
-    }
     async function likePost2(_id) {
       axios
         .post(`http:localhost:5000/user/like/${_id}`, {
@@ -91,7 +78,6 @@ export default {
 
     return {
       posts,
-      removePost,
       likePost,
     };
   },
