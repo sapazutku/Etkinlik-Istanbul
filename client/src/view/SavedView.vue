@@ -2,26 +2,26 @@
   <div class="container">
     <h2>Kaydedilen Etkinlikler</h2>
     <hr />
-    
+
     <div v-for="save in savedPost" :key="save._id" class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      {{ save.title }}
-    </p>
-    <button class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </button>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      {{save.content}}
-      <a>@{{save.creator}}</a>
-      <br>
+      <header class="card-header">
+        <p class="card-header-title">
+          {{ save.title }}
+        </p>
+        <button class="card-header-icon" aria-label="more options">
+          <span class="icon">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          {{ save.content }}
+          <a>@{{ save.creator }}</a>
+          <br />
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   </div>
 </template>
 
@@ -80,9 +80,7 @@ export default {
 .card {
   border: 1px solid #ccc;
   width: 20%;
-  margin-left:10%;
+  margin-left: 10%;
   display: inline-block;
-  
 }
-
 </style>

@@ -55,7 +55,7 @@ export default {
           //if successfull
           if (res.status === 200) {
             localStorage.setItem("token", res.data.token);
-            
+
             this.$buefy.notification.open("Giriş başarılı");
             setTimeout(() => {
               this.$router.push("/user");
@@ -69,19 +69,16 @@ export default {
         }
       );
     },
-    
   },
 };
 </script>
 <style scoped>
 .container {
   width: 40%;
-  
 }
-.login{
+.login {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 </style>

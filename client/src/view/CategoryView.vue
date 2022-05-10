@@ -8,7 +8,6 @@
               <router-link :to="menuItem.link">
                 <span class="li">{{ menuItem.name }}</span>
               </router-link>
-              
             </a>
           </li>
         </span>
@@ -20,8 +19,7 @@
 <script>
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   props: {
     //! Menu items
@@ -37,22 +35,16 @@ export default {
           link: "/posts",
         },
         {
-          name: "Etkinlik Bul",
+          name: "Konser Bul",
           link: "/posts",
         },
         {
-          name: "Etkinlik Başvurusu",
+          name: "Konser Başvurusu",
           link: "/create",
         },
-        {
-          name: "Yeşil Çevre",
-          link: "/yesil",
-        },
-        
       ],
     },
   },
-  
 };
 </script>
 
@@ -92,7 +84,6 @@ li {
   text-align: center;
   margin: 10px;
   padding: 5%;
-  
 }
 
 li:hover {
@@ -105,7 +96,7 @@ li:hover {
   border: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: rgb(255, 255, 255);
 }

@@ -49,32 +49,12 @@
           </span>
         </ul>
       </div>
-
-      <!-- <div class="profile">
-        <div class="profile-details">
-          <img v-if="profileImg" :src="profileImg" alt="profileImg" />
-          <i v-else class="bx bxs-user-rectangle" />
-          <div class="name_job">
-            <div class="name">
-              {{ profileName }}
-            </div>
-            <div class="job">
-              {{ profileRole }}
-            </div>
-          </div>
-        </div>
-        <i
-          v-if="isExitButton"
-          class="bx bx-log-out"
-          id="log_out"
-          @click.stop="$emit('button-exit-clicked')"
-        />
-      </div> -->
     </div>
   </div>
 </template>
 
 <script>
+import { icon } from 'leaflet';
 export default {
   name: "SidebarMenuAkahon",
   props: {
@@ -130,13 +110,19 @@ export default {
           tooltip: "About",
           icon: "bx-info-circle",
         },
-        
+
         {
           link: "/user/saved",
           name: "Kaydedilenler",
           tooltip: "Saved",
           icon: "bx-heart",
         },
+        {
+          link: "",
+          name: "Github",
+          icon: "bx bxl-github",
+          link: ""
+        }
       ],
     },
 
@@ -153,22 +139,6 @@ export default {
       type: String,
       default: "Search",
     },
-    //! Profile detailes
-    profileImg: {
-      type: String,
-      //default: require("@/assets/logo.png"),
-      default: require("@/assets/utku.jpeg"),
-    },
-    profileName: {
-      type: String,
-      default: "Profile Name",
-    },
-    profileRole: {
-      type: String,
-      default: "profileRole",
-    },
-    
-
     //! Styles
     bgColor: {
       type: String,
@@ -452,14 +422,7 @@ body {
   transition: all 0.5s ease;
   overflow: hidden;
 }
-.sidebar.open div.profile {
-  width: 250px;
-}
-.sidebar div .profile-details {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-}
+
 .sidebar div img {
   height: 45px;
   width: 45px;
@@ -474,36 +437,7 @@ body {
   color: var(--menu-footer-text-color);
   white-space: nowrap;
 }
-.sidebar div.profile .job {
-  font-size: 12px;
-}
-.sidebar .profile #log_out {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  background: var(--secondary-color);
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 0px;
-  transition: all 0.5s ease;
-}
-.sidebar.open .profile #log_out {
-  width: 50px;
-  background: var(--secondary-color);
-  opacity: 0;
-}
-.sidebar.open .profile:hover #log_out {
-  opacity: 1;
-}
-.sidebar.open .profile #log_out:hover {
-  opacity: 1;
-  color: red;
-}
-.sidebar .profile #log_out:hover {
-  color: red;
-}
+
 .home-section {
   position: relative;
   background: var(--home-section-color);
@@ -534,20 +468,8 @@ body {
 }
 #my-scroll::-webkit-scrollbar {
   display: none;
-  /* background-color: rgba(255, 255, 255, 0.2); 
-    width: 10px;
-    border-radius:5px  */
 }
-/* #my-scroll::-webkit-scrollbar-thumb{
-    background-color: red;
-    border-radius:5px 
-  }
-  #my-scroll::-webkit-scrollbar-button:vertical:start:decrement{
-    display:none;
-  }
-  #my-scroll::-webkit-scrollbar-button:vertical:end:increment{
-    display:none;
-  } */
+
 @media (max-width: 420px) {
   .sidebar li .tooltip {
     display: none;

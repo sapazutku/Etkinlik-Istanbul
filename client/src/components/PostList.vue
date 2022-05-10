@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    
     <div v-for="post in posts" :key="post.id" class="card">
       <header class="card-header">
         <p class="card-header-title">{{ post.title }}</p>
@@ -73,17 +74,15 @@ export default {
         .post(`http:localhost:5000/user/like/${_id}`, {
           headers: { token: localStorage.getItem("token") },
         })
-        .then(res => {
+        .then((res) => {
           console.log(headers);
         });
-        
     }
     async function likePost(_id) {
-       this.$buefy.notification.open("Beğenildi");
+      this.$buefy.notification.open("Beğenildi");
       const response = await fetch(`${API_URL}/user/like/${_id}`, {
         headers: {
           token: localStorage.getItem("token"),
-          
         },
         method: "POST",
       });
