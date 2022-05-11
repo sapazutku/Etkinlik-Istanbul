@@ -47,6 +47,14 @@
               }}</span>
             </li>
           </span>
+          <span>
+            <li>
+              <a href="https://github.com/sapazutku">
+                <i class="bx bxl-github" />
+                <span class="links_name">Github</span>
+              </a>
+            </li>
+          </span>
         </ul>
       </div>
     </div>
@@ -116,12 +124,6 @@ export default {
           name: "Kaydedilenler",
           tooltip: "Saved",
           icon: "bx-heart",
-        },
-        {
-          link: "",
-          name: "Github",
-          icon: "bx bxl-github",
-          link: ""
         }
       ],
     },
