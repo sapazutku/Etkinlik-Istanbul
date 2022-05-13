@@ -18,16 +18,29 @@
         </b-input>
       </b-field>
 
-      <b-field label="Telefon">
+      <!-- <b-field label="Telefon">
         <b-input
           placeholder="0 (5xx) xxx xx xx"
           type="phone"
           pattern="05([0-9]{9})"
           validation-message="Lütfen telefon numaranızı kontrol ediniz .."
         >
-        </b-input>
-      </b-field>
-      <b-field label="Kendinizden biraz bahseder misiniz?" v-show="true">
+        </b-input> 
+      </b-field>-->
+      <section>
+        <b-field label="Tag ekleyiniz">
+            <b-taginput
+                v-model="post.tags"
+                ellipsis
+                icon="label"
+                placeholder="Taglar"
+                aria-close-label="Delete this tag">
+            </b-taginput>
+        </b-field>
+        <!-- <p class="content"><b>Tags:</b> {{ post.tags }}</p> -->
+    </section>
+    
+      <b-field label="Etkinliğin içeriğinden biraz bahseder misiniz?" v-show="true">
         <b-input
           v-model="post.content"
           type="textarea"
@@ -37,6 +50,9 @@
         >
         </b-input>
       </b-field>
+      <b-field>
+        <b-datetimepicker v-model="post.datetime" inline></b-datetimepicker>
+      </b-field> 
       <b-field label="Etkinliği düzenlemek istediğiniz yeri seçiniz"> </b-field>
       <br />
       <br />

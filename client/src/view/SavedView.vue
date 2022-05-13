@@ -1,8 +1,16 @@
 <template>
   <div class="container">
-    <h2>Kaydedilen Etkinlikler</h2>
+    <h2 id="main-title">Kaydedilen Etkinlikler</h2>
+    <br>
+    <br>
     <hr />
-
+    <b-notification
+      type="is-danger is-light"
+      aria-close-label="Close notification"
+      v-show="show"
+    >
+      Henüz bir etkinlik kaydetmediniz
+    </b-notification>
     <div v-for="save in savedPost" :key="save._id" class="card">
       <header class="card-header">
         <p class="card-header-title">
@@ -32,10 +40,11 @@ export default {
     return {
       savedPost: [],
       savedPostsId: [],
+      show: false,
     };
   },
   methods: {
-    //
+    // postların idlerine istek
     async getSaved(id) {
       axios.get(`http://localhost:5000/posts/${id}`).then((res) => {
         console.log(res.data);
@@ -49,18 +58,20 @@ export default {
           headers: { token: localStorage.getItem("token") },
         })
         .then((res) => {
-          //this.showUser = true;
-          //this.name = res.data.user.name;
-          //this.email = res.data.user.email;
-          //console.log(res.data.user.saved);
-          //this.saved = res.data.user.saved;
-          console.log(res.data.user.saved);
+          this.controlSave(res.data.user.saved);
           this.savedPostsId = res.data.user.saved;
           for (let index = 0; index < this.savedPostsId.length; index++) {
             // bütün idlerin bilgilerini posttan çek
             this.getSaved(this.savedPostsId[index]);
           }
         });
+    },
+    // post yok ise uyarı
+    async controlSave(array) {
+      console.log(array.length);
+      if (array.length  == 0) {
+        this.show = true;
+      }
     },
   },
 
@@ -76,6 +87,8 @@ export default {
   width: 100%;
   height: 100%;
   justify-content: center;
+  align-items: center;
+  margin-left: 5%;
 }
 .card {
   border: 1px solid #ccc;
@@ -83,4 +96,12 @@ export default {
   margin-left: 10%;
   display: inline-block;
 }
+#main-title {
+  margin-top: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #242140;
+  text-align: center;
+  float: left;
+  }
 </style>

@@ -7,27 +7,35 @@ import mongoose from "mongoose";
 // date
 // tag
 const postSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    content: {
-        type: String,
-        required: true
-    },
-    creator:{
-        type:String,
-        required:true
-    },
-    parkId:{
-        type:Number,
-        required:false
-    },
-    parkName:{
-        type:String,
-        required:false
-    }
-});  
+  title: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+  creator: {
+    type: String,
+    required: true,
+  },
+  parkId: {
+    type: Number,
+    required: false,
+  },
+  parkName: {
+    type: String,
+    required: false,
+  },
+  datetime: {
+    type: Date,
+    required: false,
+  },
+  tags: {
+    type: Array,
+    required: false,
+  },
+});
 
 const Post = mongoose.model("Post", postSchema);
 

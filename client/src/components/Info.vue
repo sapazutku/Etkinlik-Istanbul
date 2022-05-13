@@ -31,13 +31,7 @@
     <br />
     <div class="img">
       <div class="columns">
-        <div class="column">
-          <img
-            height="100"
-            width="100"
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original-wordmark.svg"
-          />
-        </div>
+        
         <div class="column">
           <img
             height="100"
@@ -128,6 +122,5 @@ h3{
   font-weight: bold;
   color: #242140;
   text-align: center;
-  float: left;
 }
 </style>

@@ -12,10 +12,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  saved:{
+  saved: {
     type: Array,
-    default: []
-  }
+    default: [],
+  },
 });
 
 const User = mongoose.model("User", userSchema);

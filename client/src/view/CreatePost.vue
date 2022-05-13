@@ -22,6 +22,8 @@ export default {
       creator: "",
       parkID: null,
       parkName: null,
+      datetime: new Date,
+      tags: [],
     });
     async function createPost() {
       const response = await fetch(API_URL, {

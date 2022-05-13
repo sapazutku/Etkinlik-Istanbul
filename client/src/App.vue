@@ -1,19 +1,18 @@
 <template>
   <div id="app">
     <slidebar></slidebar>
-    
+
     <router-view></router-view>
-    
   </div>
 </template>
 <script>
-import Slidebar from './components/Slidebar.vue';
+import Slidebar from "./components/Slidebar.vue";
 
 export default {
-  components:{
-    Slidebar
-  }
-}
+  components: {
+    Slidebar,
+  },
+};
 </script>
 
 <style>

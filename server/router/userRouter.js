@@ -121,12 +121,9 @@ userRouter.post("/like/:id", (req, res, next) => {
         return res.status(200).json({
           title: "success",
         });
-      }
-      );
-    }
-    );
+      });
+    });
   });
 });
-
 
 export default userRouter;

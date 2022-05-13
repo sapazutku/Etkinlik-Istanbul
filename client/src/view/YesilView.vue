@@ -1,12 +1,19 @@
 <template>
   <div class="container">
-    <h1>Yeşil Alanlar</h1>
+    <h1 id="main-title">Yeşil Alanlar</h1>
     <YesilMap :visiblePopUp="visiblePopUp" ref="childComponent" />
     <br />
     <br />
     <div>
       <div class="container is-max-desktop">
         <h2 class="title">Etkinlikler</h2>
+        <b-notification
+          type="is-danger is-light"
+          aria-close-label="Close notification"
+          v-show="showNotification"
+        >
+          Etkinlik bulunamadı
+        </b-notification>
         <div
           class="activity"
           v-for="(activePark, index) in activeParks"
@@ -36,6 +43,7 @@ export default {
       visiblePopUp: "hidden",
       activeParks: [],
       willSearch: "",
+      showNotification: false,
     };
   },
   components: {
@@ -55,6 +63,9 @@ export default {
       console.log(response.data);
       this.activeParks = response.data;
       //this.parklar = response.data;
+      if (response.data.length == 0) {
+        this.showNotification = true;
+      }
     });
   },
 };
@@ -77,7 +88,14 @@ export default {
 }
 #title {
   width: 40%;
-  margin: 5%;
+  margin-top: 10%;
+  padding: 10px;
+}
+#main-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #242140;
+  text-align: center;
 }
 #location {
   width: 40%;

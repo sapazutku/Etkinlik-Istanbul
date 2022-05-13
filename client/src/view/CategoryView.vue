@@ -30,10 +30,10 @@ export default {
           name: "Yeşil Park Bul",
           link: "/park",
         },
-        {
+        /* {
           name: "Çevre Etkinlikleri",
           link: "/posts",
-        },
+        }, */
         {
           name: "Konser Bul",
           link: "/posts",
