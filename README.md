@@ -15,6 +15,7 @@ ulaşmasını sağlar.
 - Kullanıcı Girişi/Kayıt Olma
 - Etkinlik oluşturma/kaydetme
 - İstanbul yeşil alanları arama
+- Etkinlik bulunan yeşil alanların tespiti
 
 
   
